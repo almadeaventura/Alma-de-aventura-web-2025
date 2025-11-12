@@ -1,0 +1,76 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-video-poster",
+      "description": "Vuelo biplaza en Maitencillo",
+      "imageUrl": "https://images.unsplash.com/photo-1667559770381-8c08f1b2e502?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGFyYWdsaWRpbmclMjBiZWFjaHxlbnwwfHx8fDE3NjI1Njc4NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "parapente playa"
+    },
+    {
+      "id": "vuelo-biplaza-maitencillo",
+      "description": "Parapente en Maitencillo",
+      "imageUrl": "/images/Parapente-en-maitencillo.jpg",
+      "imageHint": "parapente maitencillo"
+    },
+    {
+      "id": "vuelo-biplaza-card",
+      "description": "Parapente en Maitencillo",
+      "imageUrl": "/images/vuelo-biplaza-en-maitencillo.webp",
+      "imageHint": "parapente maitencillo"
+    },
+    {
+      "id": "curso-de-parapente",
+      "description": "Estudiante aprendiendo a volar",
+      "imageUrl": "/images/aprende-parapente.webp",
+      "imageHint": "paragliding course"
+    },
+    {
+      "id": "tienda-web",
+      "description": "Paragliding equipment store",
+      "imageUrl": "/images/tienda-web.webp",
+      "imageHint": "paragliding gear"
+    },
+    {
+      "id": "tours-de-vuelo",
+      "description": "Paragliding tours",
+      "imageUrl": "/images/tours-de-vuelo.webp",
+      "imageHint": "paragliding tours"
+    },
+    {
+      "id": "taller-reparacion",
+      "description": "A person using a sewing machine.",
+      "imageUrl": "https://images.unsplash.com/photo-1628015829149-f206bad9e858?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNHx8U2V3aW5nJTIwbWFjaGluZSUyMHxlbnwwfHx8fDE3NjI1NzA5ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sewing machine"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Happy woman giving a thumbs up",
+      "imageUrl": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?q=80&w=400&auto=format&fit=crop",
+      "imageHint": "happy person"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Smiling person outdoors",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop",
+      "imageHint": "smiling person"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a woman smiling",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "christmas-gift",
+      "description": "A decorated Christmas tree with lights.",
+      "imageUrl": "https://images.unsplash.com/photo-1513297883318-648d82d1269b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaHJpc3RtYXMlMjB0cmVlfGVufDB8fHx8MTc2MjY1NDk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "christmas tree"
+    },
+    {
+      "id": "adventure-patagonia",
+      "description": "Hikers looking at the Torres del Paine mountains in Patagonia",
+      "imageUrl": "https://images.unsplash.com/photo-1529562602157-1239a5f4a74c?q=80&w=1200&auto=format&fit=crop",
+      "imageHint": "mountains trekking"
+    }
+  ]
+}
