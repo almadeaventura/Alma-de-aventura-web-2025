@@ -8,11 +8,11 @@ import { cn } from '@/lib/utils';
 
 const BOOKING_SHEET_EVENT = 'trigger-booking-sheet';
 
-// Extend the global Window interface to include chatwootSDK
+// Extend the global Window interface to include chatwoot
 declare global {
   interface Window {
-    chatwootSDK?: {
-      toggleBubbleVisibility: (visibility: 'hide' | 'show') => void;
+    chatwoot?: {
+      toggle: (state: 'open' | 'close') => void;
     };
   }
 }
@@ -39,13 +39,13 @@ export function BookingSheet() {
 
   useEffect(() => {
     // Check if the Chatwoot SDK is available on the window object
-    if (window.chatwootSDK) {
+    if (window.chatwoot) {
       if (isOpen) {
-        window.chatwootSDK.toggleBubbleVisibility('hide');
+        window.chatwoot.toggle('close');
       } else {
         // We add a small delay to show the bubble again to avoid visual glitches
         setTimeout(() => {
-          window.chatwootSDK?.toggleBubbleVisibility('show');
+          window.chatwoot?.toggle('open');
         }, 300); // 300ms matches the sheet's closing animation
       }
     }
