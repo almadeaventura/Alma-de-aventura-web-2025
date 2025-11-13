@@ -10,10 +10,11 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Testimonials } from "@/components/testimonials";
 import { Faqs } from "@/components/faqs";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Clock, Mountain, Award, Wind } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 
 export default function MaitencilloPage() {
-  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
     triggerBookingSheet();
   };
@@ -22,13 +23,40 @@ export default function MaitencilloPage() {
     (img) => img.id === "vuelo-biplaza-maitencillo"
   );
 
-  const features = [
-    "Vistas panorámicas del Océano Pacífico.",
-    "Vuelo seguro con instructores certificados.",
-    "Equipamiento de última generación.",
-    "Experiencia apta para todas las edades.",
-    "No se requiere experiencia previa.",
-    "Fotos y videos de tu aventura (opcional).",
+  const flightOptions = [
+    {
+      title: "Vuelo Panorámico (15-20 min)",
+      price: "$60.000",
+      description: "Disfruta de un paseo tranquilo con vistas espectaculares del mar y el campo. Ideal para tu primera experiencia.",
+      features: [
+        "Vistas panorámicas del Océano Pacífico.",
+        "Vuelo seguro con instructores certificados.",
+        "Equipamiento de última generación.",
+      ],
+      icon: <Wind className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Vuelo Freestyle (20-25 min)",
+      price: "$80.000",
+      description: "Siente la adrenalina con maniobras acrobáticas y giros emocionantes sobre el mar. ¡Para los más audaces!",
+      features: [
+        "Maniobras como wingovers y espirales.",
+        "Doble dosis de adrenalina y diversión.",
+        "Pilotos expertos en vuelo acrobático.",
+      ],
+      icon: <Award className="h-8 w-8 text-primary" />,
+    },
+    {
+      title: "Hike & Fly (2 horas aprox.)",
+      price: "$150.000",
+      description: "Combina trekking y parapente. Asciende a pie a un mirador exclusivo y desciende volando con vistas únicas.",
+      features: [
+        "Ruta de senderismo guiada.",
+        "Despegue desde un lugar privilegiado.",
+        "Una aventura completa en la naturaleza.",
+      ],
+      icon: <Mountain className="h-8 w-8 text-primary" />,
+    },
   ];
 
   return (
@@ -72,30 +100,43 @@ export default function MaitencilloPage() {
           </div>
         </section>
 
-        <section className="bg-card/80 dark:bg-card/70 backdrop-blur-sm py-12 md:py-20">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                    <div className="space-y-4">
-                         <h2 className="text-3xl font-bold tracking-tighter">¿Qué incluye la experiencia?</h2>
-                         <ul className="space-y-3">
-                            {features.map((feature, index) => (
-                                <li key={index} className="flex items-center gap-3">
-                                    <CheckCircle2 className="h-6 w-6 text-primary" />
-                                    <span className="text-base">{feature}</span>
-                                </li>
-                            ))}
-                         </ul>
-                    </div>
-                     <div className="text-center">
-                        <p className="text-2xl font-bold">Precio</p>
-                        <p className="text-6xl font-extrabold text-primary tracking-tighter">$60.000</p>
-                        <p className="text-muted-foreground">por persona</p>
-                         <Button size="lg" className="mt-6 rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
-                            ¡Quiero Volar!
-                        </Button>
-                    </div>
-                </div>
+        <section id="flight-options" className="bg-card/80 dark:bg-card/70 backdrop-blur-sm py-12 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter">Elige tu Aventura en Maitencillo</h2>
+              <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">Tenemos el vuelo perfecto para cada espíritu aventurero. ¿Cuál es el tuyo?</p>
             </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {flightOptions.map((option, index) => (
+                <Card key={index} className="flex flex-col overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] bg-background/80 dark:bg-background/70">
+                  <CardHeader className="items-center text-center p-6">
+                    {option.icon}
+                    <CardTitle className="text-xl">{option.title}</CardTitle>
+                    <div className="pt-2">
+                      <p className="text-4xl font-extrabold text-primary tracking-tighter">{option.price}</p>
+                      <p className="text-muted-foreground text-sm">por persona</p>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0 flex-grow">
+                    <CardDescription className="text-center mb-4">{option.description}</CardDescription>
+                    <ul className="space-y-2">
+                      {option.features.map((feature, fIndex) => (
+                        <li key={fIndex} className="flex items-start gap-2 text-sm">
+                          <CheckCircle2 className="h-5 w-5 text-primary/80 mt-0.5 shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <CardFooter className="p-6 pt-0">
+                    <Button className="w-full rounded-full h-12 text-base font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
+                      ¡Lo Quiero!
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
         </section>
 
         <div className="space-y-6 md:space-y-10 pt-12 md:pt-20">
