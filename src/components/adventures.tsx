@@ -17,7 +17,8 @@ const adventuresData = [
       "Aprende a volar con nuestros instructores certificados. Cursos para todos los niveles, desde iniciación hasta piloto avanzado.",
     imageId: "curso-de-parapente",
     imageClassName: "object-[center_30%]",
-    chips: ["Desde Cero", "Perfeccionate"]
+    chips: ["Desde Cero", "Perfeccionate"],
+    bookButtonText: "Reserva clase de prueba"
   },
   {
     id: 3,

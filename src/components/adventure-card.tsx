@@ -27,6 +27,7 @@ type AdventureCardProps = {
   imageClassName?: string;
   chips?: string[];
   videoUrl?: string;
+  bookButtonText?: string;
 };
 
 export function AdventureCard({
@@ -37,6 +38,7 @@ export function AdventureCard({
   imageClassName,
   chips,
   videoUrl,
+  bookButtonText = "Reservar",
 }: AdventureCardProps) {
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
@@ -149,7 +151,7 @@ export function AdventureCard({
               onClick={handleBookingClick}
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
-              Reservar
+              {bookButtonText}
             </Button>
           </div>
         </CardFooter>
