@@ -19,7 +19,7 @@ const adventuresData = [
     imageId: "curso-de-parapente",
     imageClassName: "object-[center_30%]",
     chips: ["Desde Cero", "Perfeccionate"],
-    bookButtonText: "Reserva clase de prueba"
+    bookButtonText: "Clase de prueba"
   },
   {
     id: 3,
