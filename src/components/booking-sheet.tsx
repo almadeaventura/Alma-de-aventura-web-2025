@@ -1,20 +1,25 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { useState, useEffect }from 'react';
+import { Button } from '@/components/ui/button';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const BOOKING_SHEET_EVENT = 'trigger-booking-sheet';
 
 export function triggerBookingSheet() {
-  document.dispatchEvent(new CustomEvent(BOOKING_SHEET_EVENT));
+  document.dispatchEvent(new CustomEvent(BOOKING_SHEET_EVENT, { detail: { open: true } }));
 }
 
 export function BookingSheet() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleTrigger = () => setIsOpen(true);
+    const handleTrigger = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      setIsOpen(customEvent.detail.open);
+    };
     
     document.addEventListener(BOOKING_SHEET_EVENT, handleTrigger);
     
@@ -23,22 +28,42 @@ export function BookingSheet() {
     };
   }, []);
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent side="bottom" className="p-0 h-[80vh] w-full bg-transparent border-none shadow-none rounded-t-2xl">
-        <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
-            <SheetHeader className="p-4 pt-6 border-b border-white/10 flex-shrink-0">
-              <SheetTitle className="text-white text-center sr-only">Reserva tu Aventura</SheetTitle>
-            </SheetHeader>
-            <div className="flex-grow h-0">
-              <iframe
-                  src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-                  className="w-full h-full border-0"
-                  title="Formulario de Reserva"
-              ></iframe>
-            </div>
+    <>
+      {/* Overlay */}
+      <div
+        onClick={handleClose}
+        className={cn(
+          "fixed inset-0 z-40 bg-black/80 transition-opacity duration-300",
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+      />
+      
+      {/* Sheet Content */}
+      <div
+        className={cn(
+          "fixed bottom-0 left-0 right-0 z-50 flex h-[85vh] flex-col rounded-t-2xl bg-card shadow-2xl transition-transform duration-300 ease-in-out",
+          isOpen ? "translate-y-0" : "translate-y-full"
+        )}
+      >
+        <div className="flex-shrink-0 p-2 text-right">
+          <Button variant="ghost" size="icon" onClick={handleClose} className="h-8 w-8 rounded-full">
+            <X className="h-5 w-5" />
+            <span className="sr-only">Cerrar</span>
+          </Button>
         </div>
-      </SheetContent>
-    </Sheet>
+        <div className="flex-grow h-0">
+          <iframe
+            src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
+            className="h-full w-full border-0"
+            title="Formulario de Reserva"
+          ></iframe>
+        </div>
+      </div>
+    </>
   );
 }
