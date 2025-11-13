@@ -80,13 +80,11 @@ export function BookingSheet() {
             </Button>
           </DialogClose>
         </DialogHeader>
-        <div className="flex-grow h-full p-2 pt-0">
-          <iframe
-            src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-            className="h-full w-full border-0 rounded-lg"
-            title="Formulario de Reserva"
-          ></iframe>
-        </div>
+        <iframe
+          src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
+          className="h-full w-full border-0"
+          title="Formulario de Reserva"
+        ></iframe>
       </DialogContent>
     </Dialog>
   );
