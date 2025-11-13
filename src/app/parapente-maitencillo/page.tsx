@@ -33,7 +33,6 @@ export default function MaitencilloPage() {
         "Vuelo recto y nivelado",
         "Equipamiento de última generación.",
       ],
-      icon: <Wind className="h-8 w-8 text-primary" />,
     },
     {
       title: "Vuelo Freestyle (20-25 min)",
@@ -44,7 +43,6 @@ export default function MaitencilloPage() {
         "Doble dosis de adrenalina y diversión.",
         "Pilotos expertos en vuelo acrobático.",
       ],
-      icon: <Award className="h-8 w-8 text-primary" />,
     },
     {
       title: "Hike & Fly (2 horas aprox.)",
@@ -55,7 +53,6 @@ export default function MaitencilloPage() {
         "Despegue desde un lugar privilegiado.",
         "Una aventura completa en la naturaleza.",
       ],
-      icon: <Mountain className="h-8 w-8 text-primary" />,
     },
   ];
 
@@ -110,7 +107,7 @@ export default function MaitencilloPage() {
               {flightOptions.map((option, index) => (
                 <Card key={index} className="flex flex-col overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] bg-background/80 dark:bg-background/70">
                   <CardHeader className="items-center text-center p-6">
-                    {option.icon}
+                    
                     <CardTitle className="text-xl">{option.title}</CardTitle>
                     <div className="pt-2">
                       <p className="text-4xl font-extrabold text-primary tracking-tighter">{option.price}</p>
