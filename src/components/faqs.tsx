@@ -13,18 +13,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const faqData = [
   {
     id: "faq-1",
-    question: "¿Qué es el parapente?",
-    answer: "El parapente es un deporte aéreo que consiste en volar utilizando un ala flexible y ligera, sin motor. El piloto va sentado en un arnés y controla el parapente con dos mandos para dirigirlo y controlar la velocidad.",
+    question: "¿Qué días y horas se puede volar?",
+    answer: "Volamos todos los días del año, siempre que las condiciones meteorológicas lo permitan. Generalmente, los vuelos comienzan desde el mediodía hasta el atardecer, que es cuando las condiciones suelen ser más favorables.",
   },
   {
     id: "faq-2",
-    question: "¿Es seguro volar en parapente?",
-    answer: "Sí, el parapente es una actividad muy segura cuando se realiza con instructores certificados y equipos en buen estado. Seguimos estrictos protocolos de seguridad y solo volamos en condiciones meteorológicas óptimas para garantizar tu bienestar.",
+    question: "¿Hay límites de edad o peso?",
+    answer: "No hay un límite de edad estricto, pero los menores deben tener autorización de sus padres. Por seguridad, el peso de los pasajeros debe estar entre 30 kg y 100 kg. Esto puede variar ligeramente según las condiciones del viento del día.",
   },
   {
     id: "faq-3",
-    question: "¿Necesito experiencia previa?",
-    answer: "No, para un vuelo biplaza (tándem) no necesitas ninguna experiencia. Irás acompañado de un instructor profesional que se encargará de todo. Solo necesitas ganas de disfrutar de una experiencia inolvidable.",
+    question: "¿Necesito experiencia previa? ¿Puedo volar si tengo alguna discapacidad?",
+    answer: "No necesitas ninguna experiencia para un vuelo biplaza (tándem), ¡solo las ganas de vivir la aventura! Nuestro instructor se encarga de todo. Además, el parapente es una actividad muy inclusiva. Hemos tenido el placer de volar con personas con diversas capacidades; solo se requiere poder dar unos pocos pasos durante el despegue y aterrizaje. Si tienes alguna duda, contáctanos y lo conversamos.",
   },
   {
     id: "faq-4",
@@ -33,8 +33,8 @@ const faqData = [
   },
   {
     id: "faq-5",
-    question: "¿Hay límites de edad o peso?",
-    answer: "Generalmente, no hay un límite de edad estricto, pero los menores deben contar con autorización de sus padres. En cuanto al peso, por razones de seguridad, el rango habitual para los pasajeros está entre 30 kg y 100 kg. Por favor, consulta si tienes dudas.",
+    question: "¿Es seguro volar en parapente?",
+    answer: "Sí, el parapente es una actividad muy segura cuando se realiza con instructores certificados y equipos en buen estado. Seguimos estrictos protocolos de seguridad y solo volamos en condiciones meteorológicas óptimas para garantizar tu bienestar.",
   }
 ];
 
