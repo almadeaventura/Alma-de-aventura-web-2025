@@ -2,6 +2,13 @@
 "use client";
 
 import { useState, useEffect }from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -40,8 +47,8 @@ export function BookingSheet() {
   }, []);
 
   useEffect(() => {
-    // We don't want to run this on the very first render.
-    // Chatwoot script will handle the initial visibility.
+    // This effect ensures the Chatwoot widget is toggled correctly
+    // when the booking dialog opens or closes.
     if (!isMounted) return;
 
     if (window.chatwoot) {
@@ -52,50 +59,35 @@ export function BookingSheet() {
         // This should only run when the sheet is *closing*, not on initial load.
         setTimeout(() => {
           window.chatwoot?.toggle('open');
-        }, 300); // 300ms matches the sheet's closing animation
+        }, 300); // 300ms matches the dialog's closing animation
       }
     }
   }, [isOpen, isMounted]);
 
-  const handleClose = () => {
-    setIsOpen(false);
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
   };
 
   return (
-    <>
-      {/* Overlay */}
-      <div
-        onClick={handleClose}
-        className={cn(
-          "fixed inset-0 z-40 bg-black/80 transition-opacity duration-300",
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-      />
-      
-      {/* Sheet Content */}
-      <div
-        className={cn(
-          "fixed bottom-0 left-0 right-0 z-50 flex h-[85vh] flex-col rounded-t-2xl bg-card shadow-2xl transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-y-0" : "translate-y-full"
-        )}
-      >
-        <div className="flex-shrink-0 p-4 text-center relative">
-          {/* Drag Handle */}
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-muted rounded-full"></div>
-
-          <Button variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2 h-8 w-8 rounded-full">
-            <X className="h-5 w-5" />
-            <span className="sr-only">Cerrar</span>
-          </Button>
-        </div>
-        <div className="flex-grow h-0">
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
+      <DialogContent className="p-0 border-0 w-[95vw] h-[90vh] max-w-4xl bg-card shadow-2xl flex flex-col">
+        <DialogHeader className="p-4 text-center relative flex-shrink-0">
+          <DialogTitle className="sr-only">Formulario de Reserva</DialogTitle>
+          <DialogClose asChild>
+            <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-8 w-8 rounded-full">
+              <X className="h-5 w-5" />
+              <span className="sr-only">Cerrar</span>
+            </Button>
+          </DialogClose>
+        </DialogHeader>
+        <div className="flex-grow h-0 p-2 pt-0">
           <iframe
             src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-            className="h-full w-full border-0"
+            className="h-full w-full border-0 rounded-b-lg"
             title="Formulario de Reserva"
           ></iframe>
         </div>
-      </div>
-    </>
+      </DialogContent>
+    </Dialog>
   );
 }
