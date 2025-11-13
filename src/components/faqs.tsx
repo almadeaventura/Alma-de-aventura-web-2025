@@ -14,7 +14,7 @@ const faqData = [
   {
     id: "faq-1",
     question: "¿Qué días y horas se puede volar?",
-    answer: "Volamos todos los días del año, siempre que las condiciones meteorológicas lo permitan. Generalmente, los vuelos comienzan desde el mediodía hasta el atardecer, que es cuando las condiciones suelen ser más favorables.",
+    answer: "En AlmAventura, realizamos vuelos en parapente todos los días del año, siempre que las condiciones meteorológicas en nuestras zonas de vuelo como Maitencillo y Santiago sean seguras y favorables. Nuestro horario de vuelo habitual es desde el mediodía hasta el atardecer, aprovechando las mejores corrientes térmicas y laminares que nos regala la costa de Chile. Te recomendamos reservar con antelación para asegurar tu cupo en el mejor horario.",
   },
   {
     id: "faq-2",
