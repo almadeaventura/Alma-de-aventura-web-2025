@@ -28,6 +28,7 @@ type AdventureCardProps = {
   chips?: string[];
   videoUrl?: string;
   bookButtonText?: string;
+  showPlayButton?: boolean;
 };
 
 export function AdventureCard({
@@ -39,6 +40,7 @@ export function AdventureCard({
   chips,
   videoUrl,
   bookButtonText = "Reservar",
+  showPlayButton = true,
 }: AdventureCardProps) {
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
@@ -122,23 +124,25 @@ export function AdventureCard({
               <Share2 className="h-5 w-5" />
               <span className="sr-only">Share</span>
             </Button>
-            {videoUrl ? (
-              <VideoDialog
-                videoUrl={videoUrl}
-                videoTitle={title}
-                trigger={
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
-                  >
-                    <Play className="h-5 w-5" />
-                    <span className="sr-only">Play Video</span>
-                  </Button>
-                }
-              />
-            ) : (
-              <PlayButton />
+            {showPlayButton && (
+              videoUrl ? (
+                <VideoDialog
+                  videoUrl={videoUrl}
+                  videoTitle={title}
+                  trigger={
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
+                    >
+                      <Play className="h-5 w-5" />
+                      <span className="sr-only">Play Video</span>
+                    </Button>
+                  }
+                />
+              ) : (
+                <PlayButton />
+              )
             )}
           </div>
           <div className="flex items-center gap-2">
