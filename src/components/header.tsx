@@ -23,12 +23,6 @@ const navLinks = [
   { href: "/#about", label: "Contacto" },
 ];
 
-declare global {
-    interface Window {
-        openBookingSheet?: () => void;
-    }
-}
-
 export function Header() {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         if (href === "#book") {
@@ -40,7 +34,7 @@ export function Header() {
         }
     };
   return (
-    <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5">
+    <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5 sticky top-0 z-40">
       <Link href="/" className="flex items-center">
         <Image
           src="/images/logo.svg"
@@ -51,7 +45,7 @@ export function Header() {
           priority
         />
       </Link>
-      <nav className="hidden">
+      <nav className="hidden md:flex items-center gap-6">
         {navLinks.map((link) => (
           <Link
             key={link.href}
@@ -65,7 +59,7 @@ export function Header() {
       </nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="h-8 w-8" />
             <span className="sr-only">Toggle Menu</span>
           </Button>

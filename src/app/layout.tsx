@@ -6,7 +6,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { AppLoader } from '@/components/app-loader';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Script from 'next/script';
 
@@ -28,6 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [isBookingSheetOpen, setIsBookingSheetOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenBooking = () => setIsBookingSheetOpen(true);
+    const mainContainer = document.getElementById('main-container');
+
+    if (mainContainer) {
+        mainContainer.addEventListener('open-booking-sheet', handleOpenBooking);
+    }
+    
+    // Cleanup
+    return () => {
+        if (mainContainer) {
+            mainContainer.removeEventListener('open-booking-sheet', handleOpenBooking);
+        }
+    };
+  }, []);
 
   return (
     <html lang="es" className={`${plusJakartaSans.variable}`}>
@@ -72,7 +88,9 @@ export default function RootLayout({
               g.onload=function(){
                 window.chatwootSDK.run({
                   websiteToken: 'L9TqEY3C3ZQUasNXuYTQULMC',
-                  baseUrl: BASE_URL
+                  baseUrl: BASE_URL,
+                  type: 'standard',
+                  hideMessageBubble: false
                 })
               }
             })(document,"script");

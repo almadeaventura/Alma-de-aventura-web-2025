@@ -1,4 +1,6 @@
 
+"use client";
+
 import Image from 'next/image';
 import { CheckCircle, Award, Shield, Wind, Users } from 'lucide-react';
 
@@ -60,6 +62,15 @@ const faqs = [
 export default function ParapenteMaitencilloPage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-video-poster');
 
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const mainContainer = document.getElementById('main-container');
+    if (mainContainer) {
+        mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
+    }
+  };
+
+
   return (
     <div className="relative flex min-h-screen w-full flex-col bg-transparent">
       <Header />
@@ -85,7 +96,7 @@ export default function ParapenteMaitencilloPage() {
               Siente la libertad de volar sobre el Océano Pacífico con instructores certificados. Una experiencia inolvidable te espera.
             </p>
             <Button asChild size="lg" className="mt-8 rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-              <a href="#book">Reservar Mi Vuelo Ahora</a>
+              <a href="#book" onClick={handleBookingClick}>Reservar Mi Vuelo Ahora</a>
             </Button>
           </div>
         </section>
@@ -126,7 +137,7 @@ export default function ParapenteMaitencilloPage() {
                         ))}
                       </ul>
                       <Button asChild className="w-full mt-auto rounded-full font-bold transition-transform hover:scale-105">
-                        <a href="#book">Quiero Este Vuelo</a>
+                        <a href="#book" onClick={handleBookingClick}>Quiero Este Vuelo</a>
                       </Button>
                     </CardContent>
                   </Card>
@@ -194,9 +205,8 @@ export default function ParapenteMaitencilloPage() {
             <span className="block">que nunca olvidaras</span>
           </h2>
           <div className="mt-8">
-             {/* Este botón abrirá el panel de reservas a través del ID en el header */}
             <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-                <a href="#book">Reservar Ahora</a>
+                <a href="#book" onClick={handleBookingClick}>Reservar Ahora</a>
             </Button>
           </div>
         </div>

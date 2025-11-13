@@ -40,6 +40,14 @@ export function AdventureCard({
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
 
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const mainContainer = document.getElementById('main-container');
+    if (mainContainer) {
+        mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
+    }
+  };
+
   const handleComingSoon = () => {
     toast({
       title: "¡No desesperes, ya falta menos!",
@@ -136,7 +144,7 @@ export function AdventureCard({
               asChild
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
-              <Link href="#book">Reservar</Link>
+              <a href="#book" onClick={handleBookingClick}>Reservar</a>
             </Button>
           </div>
         </CardFooter>

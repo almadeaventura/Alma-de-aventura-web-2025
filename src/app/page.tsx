@@ -1,4 +1,6 @@
 
+"use client";
+
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Adventures } from "@/components/adventures";
@@ -7,6 +9,14 @@ import { SiteFooter } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const mainContainer = document.getElementById('main-container');
+    if (mainContainer) {
+      mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
+    }
+  };
+
   return (
     <div className="relative flex min-h-screen w-full flex-col bg-transparent">
       <Header />
@@ -27,9 +37,8 @@ export default function Home() {
             <span className="block">que nunca olvidaras</span>
           </h2>
           <div className="mt-8">
-             {/* Este botón abrirá el panel de reservas a través del ID en el header */}
             <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-                <a href="#book">Reservar Ahora</a>
+                <a href="#book" onClick={handleBookingClick}>Reservar Ahora</a>
             </Button>
           </div>
         </div>
