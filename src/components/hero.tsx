@@ -19,7 +19,7 @@ import { Card, CardContent } from "./ui/card";
 const heroSlides = [
   {
     type: "image",
-    title: ["Vuela parapente", "en Maitencillo y Santiago"],
+    title: ["Vuela parapente", "en Maitencillo", "y Santiago"],
     imageId: "vuelo-biplaza-maitencillo",
     action: "button",
     buttonLink: "#book",
