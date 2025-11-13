@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/testimonials";
 import { SiteFooter } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { triggerBookingSheet } from "@/components/booking-sheet";
+import { Faqs } from '@/components/faqs';
 
 // export const metadata: Metadata = {
 //   title: 'AlmAventura | Escuela de Parapente y Vuelos Tándem en Chile',
@@ -50,6 +51,7 @@ export default function Home() {
         <div className="space-y-6 md:space-y-10">
           <Adventures />
           <Testimonials />
+          <Faqs />
         </div>
         <div id="book" className="pb-10 text-center container mx-auto px-4">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter">
