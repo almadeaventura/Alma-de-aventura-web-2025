@@ -30,8 +30,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${plusJakartaSans.variable}`}>
       <head>
-        <title>AlmAventura</title>
-        <meta name="description" content="Vive la Aventura en Chile y Europa con Almadeaventura" />
+        {/* The document head is managed by Next.js. Metadata should be defined in page.tsx or layout.tsx files. */}
       </head>
       <body className="font-body">
         <AppLoader>
