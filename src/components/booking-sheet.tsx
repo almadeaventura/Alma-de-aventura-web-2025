@@ -51,13 +51,13 @@ export function BookingSheet() {
         <DialogHeader className="p-0 text-center relative flex-shrink-0 h-0">
           <DialogTitle className="sr-only">Formulario de Reserva</DialogTitle>
           <DialogClose asChild>
-            <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-10 w-10 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
+            <Button variant="ghost" size="icon" className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
               <X className="h-6 w-6" />
               <span className="sr-only">Cerrar</span>
             </Button>
           </DialogClose>
         </DialogHeader>
-        <div className={cn('h-full w-full', !isOpen && 'hidden')}>
+        <div className={cn('h-full w-full overflow-hidden rounded-lg', !isOpen && 'hidden')}>
           <iframe
             src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
             className="h-full w-full border-0"
