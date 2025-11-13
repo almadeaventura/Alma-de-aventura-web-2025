@@ -51,7 +51,7 @@ export function BookingSheet() {
         <DialogHeader className="p-0 text-center relative flex-shrink-0 h-0">
           <DialogTitle className="sr-only">Formulario de Reserva</DialogTitle>
           <DialogClose asChild>
-            <Button variant="ghost" size="icon" className="absolute top-6 right-6 h-10 w-10 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
+            <Button variant="ghost" size="icon" className="absolute top-[10%] -right-4 h-10 w-10 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
               <X className="h-6 w-6" />
               <span className="sr-only">Cerrar</span>
             </Button>
