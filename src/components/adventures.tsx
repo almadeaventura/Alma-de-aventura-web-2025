@@ -9,7 +9,6 @@ const adventuresData = [
     imageId: "vuelo-biplaza-card",
     link: "#book",
     chips: ["Siente", "Relájate", "Desde 60mil"],
-    videoUrl: "/videos/relax-estas-volando.mov",
     showPlayButton: false,
   },
   {
@@ -22,15 +21,6 @@ const adventuresData = [
     chips: ["Desde Cero", "Perfeccionate"],
     bookButtonText: "Clase de prueba",
     showPlayButton: false
-  },
-  {
-    id: 6,
-    title: "Hike and Fly",
-    description: "Combina senderismo y parapente en una aventura única. Asciende a pie y desciende volando por paisajes increíbles.",
-    imageId: "adventure-patagonia",
-    link: "#book",
-    chips: ["150mil", "2 horas", "Trekking"],
-    showPlayButton: false,
   },
   {
     id: 3,
