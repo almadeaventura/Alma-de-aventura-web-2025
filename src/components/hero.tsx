@@ -19,7 +19,7 @@ import { Card, CardContent } from "./ui/card";
 const heroSlides = [
   {
     type: "image",
-    title: "Vuela parapente en Maitencillo y Santiago",
+    title: ["Vuela parapente", "en Maitencillo y Santiago"],
     imageId: "vuelo-biplaza-maitencillo",
     action: "button",
     buttonLink: "#book",
@@ -107,7 +107,11 @@ export function Hero() {
                       
                       <div className="absolute bottom-0 left-0 p-4 w-full">
                         <h2 className={cn("text-xl font-bold text-white drop-shadow-md", slide.titleClassName)}>
-                          {slide.title}
+                          {Array.isArray(slide.title) ? (
+                            slide.title.map((line, i) => <span key={i} className="block">{line}</span>)
+                          ) : (
+                            slide.title
+                          )}
                         </h2>
                         <Button asChild size="sm" className="mt-2 rounded-full px-5 font-bold transition-transform hover:scale-105">
                           <Link href={slide.buttonLink || '#'} onClick={(e) => handleBookingClick(e, slide.buttonLink)}>{slide.buttonText || 'Saber Más'}</Link>
