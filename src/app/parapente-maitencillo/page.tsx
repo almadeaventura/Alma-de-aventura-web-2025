@@ -41,7 +41,7 @@ export default function MaitencilloPage() {
       features: [
         "Maniobras como wingovers y espirales.",
         "Doble dosis de adrenalina y diversión.",
-        "Pilotos expertos en vuelo acrobático.",
+        "Pilotos expertos en vuelo freestyle.",
       ],
     },
     {
