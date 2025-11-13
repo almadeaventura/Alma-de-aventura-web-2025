@@ -10,7 +10,7 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Testimonials } from "@/components/testimonials";
 import { Faqs } from "@/components/faqs";
-import { CheckCircle2, Clock, Mountain, Award, Wind } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 
 export default function MaitencilloPage() {
@@ -36,7 +36,7 @@ export default function MaitencilloPage() {
     },
     {
       title: "Vuelo Freestyle (20-25 min)",
-      price: "$80.000",
+      price: "$95.000",
       description: "Siente la adrenalina con maniobras acrobáticas y giros emocionantes sobre el mar. ¡Para los más audaces!",
       features: [
         "Maniobras como wingovers y espirales.",
