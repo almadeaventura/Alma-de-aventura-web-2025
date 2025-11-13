@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Gift } from "lucide-react";
+import { Gift, Mails } from "lucide-react"; // Asumo un icono como Mails, lo reemplazaré con un SVG.
 
 import {
   Sheet,
@@ -15,6 +15,27 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { triggerBookingSheet } from "./booking-sheet";
+
+// SVG para el gorro de Santa
+const SantaHatIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="h-6 w-6 text-red-500 -mb-5 -ml-2 transform rotate-[15deg]"
+  >
+    <path d="M12 2l7 4-7 8-7-8 7-4z" fill="red" stroke="red"></path>
+    <path d="M5 6L12 14l7-8" stroke="red" strokeWidth="1"></path>
+    <circle cx="19" cy="6" r="3" fill="white" stroke="white"></circle>
+  </svg>
+);
+
 
 const navLinks = [
   { href: "/#adventures", label: "Otros Servicios" },
@@ -32,7 +53,7 @@ export function Header() {
     };
   return (
     <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5">
-      <Link href="/" className="flex items-center">
+      <Link href="/" className="flex items-center gap-1">
         <Image
           src="/images/logo.svg"
           alt="AlmAventura Logo"
@@ -41,11 +62,12 @@ export function Header() {
           className="h-8 w-auto"
           priority
         />
+        <SantaHatIcon />
       </Link>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <Gift className="h-8 w-8 text-red-500" />
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500">
+            <Gift className="h-8 w-8" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
