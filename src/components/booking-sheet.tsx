@@ -20,6 +20,7 @@ declare global {
   interface Window {
     chatwoot?: {
       toggle: (state: 'open' | 'close') => void;
+      toggleBubble: (visible: boolean) => void;
     };
   }
 }
@@ -51,13 +52,9 @@ export function BookingSheet() {
 
     if (window.chatwoot) {
       if (isOpen) {
-        window.chatwoot.toggle('close');
+        window.chatwoot.toggleBubble(false);
       } else {
-        // We add a small delay to show the bubble again to avoid visual glitches
-        // This should only run when the sheet is *closing*, not on initial load.
-        setTimeout(() => {
-          window.chatwoot?.toggle('open');
-        }, 300); // 300ms matches the dialog's closing animation
+        window.chatwoot.toggleBubble(true);
       }
     }
   }, [isOpen, isMounted]);
