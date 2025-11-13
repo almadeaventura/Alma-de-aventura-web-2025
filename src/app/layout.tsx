@@ -41,8 +41,8 @@ export default function RootLayout({
             {children}
           </div>
           <Toaster />
-          <BookingSheet />
         </AppLoader>
+        <BookingSheet />
       </body>
     </html>
   );
