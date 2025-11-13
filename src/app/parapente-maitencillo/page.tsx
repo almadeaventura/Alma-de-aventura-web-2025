@@ -1,4 +1,6 @@
 
+'use client';
+
 import { Header } from "@/components/header";
 import { SiteFooter } from "@/components/footer";
 import { Breadcrumb } from "@/components/breadcrumb";
