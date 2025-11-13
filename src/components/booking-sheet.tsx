@@ -50,8 +50,11 @@ export function BookingSheet() {
           isOpen ? "translate-y-0" : "translate-y-full"
         )}
       >
-        <div className="flex-shrink-0 p-2 text-right">
-          <Button variant="ghost" size="icon" onClick={handleClose} className="h-8 w-8 rounded-full">
+        <div className="flex-shrink-0 p-4 text-center relative">
+          {/* Drag Handle */}
+          <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-muted rounded-full"></div>
+
+          <Button variant="ghost" size="icon" onClick={handleClose} className="absolute top-2 right-2 h-8 w-8 rounded-full">
             <X className="h-5 w-5" />
             <span className="sr-only">Cerrar</span>
           </Button>
