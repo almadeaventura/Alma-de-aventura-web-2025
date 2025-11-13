@@ -113,8 +113,8 @@ export function AdventureCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="mt-auto pt-4 flex items-center justify-center p-0 gap-2">
-          
+        <CardFooter className="mt-auto pt-4 flex items-center justify-between p-0">
+          <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="icon"
@@ -144,8 +144,8 @@ export function AdventureCard({
                 <PlayButton />
               )
             )}
-          
-          
+          </div>
+          <div className="flex items-center gap-2">
             <Button
               asChild
               variant="secondary"
@@ -159,7 +159,7 @@ export function AdventureCard({
             >
               {bookButtonText}
             </Button>
-          
+          </div>
         </CardFooter>
       </CardContent>
     </Card>
