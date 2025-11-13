@@ -8,7 +8,7 @@ import { Plus_Jakarta_Sans } from 'next/font/google';
 import { AppLoader } from '@/components/app-loader';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
-import { WhatsappFab } from '@/components/whatsapp-fab';
+import Script from 'next/script';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -45,7 +45,6 @@ export default function RootLayout({
             {children}
           </div>
           <Toaster />
-          <WhatsappFab onFabClick={() => setIsBookingSheetOpen(true)} />
           <Sheet open={isBookingSheetOpen} onOpenChange={setIsBookingSheetOpen}>
             <SheetContent side="right" className="p-0 w-full sm:max-w-md">
               <SheetHeader className="p-4 border-b">
@@ -61,6 +60,24 @@ export default function RootLayout({
             </SheetContent>
           </Sheet>
         </AppLoader>
+        <Script id="chatwoot-sdk" strategy="afterInteractive">
+          {`
+            (function(d,t) {
+              var BASE_URL="https://chatwoot-chatwoot.zthppe.easypanel.host";
+              var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+              g.src=BASE_URL+"/packs/js/sdk.js";
+              g.defer = true;
+              g.async = true;
+              s.parentNode.insertBefore(g,s);
+              g.onload=function(){
+                window.chatwootSDK.run({
+                  websiteToken: 'L9TqEY3C3ZQUasNXuYTQULMC',
+                  baseUrl: BASE_URL
+                })
+              }
+            })(document,"script");
+          `}
+        </Script>
       </body>
     </html>
   );

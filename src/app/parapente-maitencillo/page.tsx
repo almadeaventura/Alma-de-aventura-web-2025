@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { WhatsappFab } from '@/components/whatsapp-fab';
 import { Testimonials } from '@/components/testimonials';
 
 const services = [
@@ -204,7 +203,6 @@ export default function ParapenteMaitencilloPage() {
 
       </main>
       <SiteFooter />
-      <WhatsappFab />
     </div>
   );
 }
