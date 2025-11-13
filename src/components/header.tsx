@@ -43,21 +43,9 @@ export function Header() {
           priority
         />
       </Link>
-      <nav className="hidden md:flex items-center gap-6">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={(e) => handleNavClick(e, link.href)}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="md:hidden">
+          <Button variant="ghost" size="icon">
             <Menu className="h-8 w-8" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
