@@ -7,6 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 
 const faqData = [
   {
@@ -39,24 +41,28 @@ const faqData = [
 export function Faqs() {
   return (
     <section id="faqs" className="container mx-auto px-4 pb-12 md:pb-20">
-      <div className="flex flex-col items-center text-center pb-8">
-        <h2 className="text-3xl font-bold leading-tight tracking-tighter">
-          Preguntas Frecuentes
-        </h2>
-        <p className="mt-2 text-muted-foreground max-w-2xl">
-          Aquí encontrarás respuestas a las dudas más comunes sobre nuestros vuelos y cursos de parapente.
-        </p>
-      </div>
-      <div className="mx-auto max-w-3xl">
-        <Accordion type="single" collapsible className="w-full">
-          {faqData.map((faq) => (
-            <AccordionItem key={faq.id} value={faq.id}>
-              <AccordionTrigger className="text-left font-bold">{faq.question}</AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+      <Card className="overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-shadow hover:shadow-lg bg-card/90 dark:bg-card/80">
+        <CardHeader className="items-center text-center p-6">
+          <CardTitle className="text-3xl font-bold leading-tight tracking-tighter">
+            Preguntas Frecuentes
+          </CardTitle>
+          <p className="mt-2 text-muted-foreground max-w-2xl">
+            Aquí encontrarás respuestas a las dudas más comunes sobre nuestros vuelos y cursos de parapente.
+          </p>
+        </CardHeader>
+        <CardContent className="px-6 pb-6">
+          <div className="mx-auto max-w-3xl">
+            <Accordion type="single" collapsible className="w-full">
+              {faqData.map((faq, index) => (
+                <AccordionItem key={faq.id} value={faq.id} className={index === faqData.length - 1 ? 'border-b-0' : ''}>
+                  <AccordionTrigger className="text-left font-bold">{faq.question}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </CardContent>
+      </Card>
     </section>
   );
 }
