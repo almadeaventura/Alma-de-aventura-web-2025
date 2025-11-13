@@ -32,7 +32,7 @@ export function Header() {
         }
     };
   return (
-    <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5 sticky top-0 z-40">
+    <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5">
       <Link href="/" className="flex items-center">
         <Image
           src="/images/logo.svg"
