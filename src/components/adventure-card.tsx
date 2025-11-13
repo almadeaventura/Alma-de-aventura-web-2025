@@ -80,6 +80,8 @@ export function AdventureCard({
     </Button>
   );
 
+  const isWhatsAppLink = link.startsWith("https://wa.me/");
+
   return (
     <Card className="flex flex-col overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-shadow hover:shadow-lg bg-card/90 dark:bg-card/80 max-w-sm">
       <div className="w-full aspect-video relative">
@@ -115,11 +117,11 @@ export function AdventureCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className={cn("mt-auto pt-4 flex items-center p-0", singleButtonText ? "justify-center" : "justify-between")}>
+        <CardFooter className={cn("mt-auto pt-4 flex items-center p-0", singleButtonText || isWhatsAppLink ? "justify-center" : "justify-between")}>
           {singleButtonText ? (
             <Button
               onClick={handleComingSoon}
-              disabled
+              disabled={singleButtonText.includes('Pronto')}
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
               {singleButtonText}
@@ -136,8 +138,7 @@ export function AdventureCard({
                   <Share2 className="h-5 w-5" />
                   <span className="sr-only">Share</span>
                 </Button>
-                {showPlayButton &&
-                  (videoUrl ? (
+                {videoUrl ? (
                     <VideoDialog
                       videoUrl={videoUrl}
                       videoTitle={title}
@@ -153,22 +154,31 @@ export function AdventureCard({
                       }
                     />
                   ) : (
-                    <PlayButton />
-                  ))}
+                    showPlayButton && <PlayButton />
+                  )}
               </div>
               <div className="flex items-center gap-2">
+                {!isWhatsAppLink && (
+                  <Button
+                    asChild
+                    variant="secondary"
+                    className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50"
+                  >
+                    <Link href={link} onClick={handleLinkClick}>Ver Más</Link>
+                  </Button>
+                )}
                 <Button
-                  asChild
-                  variant="secondary"
-                  className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50"
-                >
-                  <Link href={link} onClick={handleLinkClick}>Ver Más</Link>
-                </Button>
-                <Button
-                  onClick={handleBookingClick}
+                  asChild={isWhatsAppLink}
+                  onClick={!isWhatsAppLink ? handleBookingClick : undefined}
                   className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
                 >
-                  {bookButtonText}
+                  {isWhatsAppLink ? (
+                    <Link href={link} target="_blank" rel="noopener noreferrer">
+                      {bookButtonText}
+                    </Link>
+                  ) : (
+                    <>{bookButtonText}</>
+                  )}
                 </Button>
               </div>
             </>

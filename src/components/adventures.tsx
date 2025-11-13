@@ -10,7 +10,7 @@ const adventuresData = [
     link: "#book",
     chips: ["Siente", "Relájate", "Desde 60mil"],
     videoUrl: "/videos/relax-estas-volando.mov",
-    showPlayButton: true,
+    showPlayButton: false,
   },
   {
     id: 2,
@@ -49,7 +49,9 @@ const adventuresData = [
     description: "Servicio de reparación para parapentes, kites y arneses. Tu equipo en manos de riggers certificados para garantizar tu seguridad.",
     imageId: "taller-reparacion",
     chips: ["Parapente", "Kites", "Paracaidas"],
-    showPlayButton: false
+    showPlayButton: false,
+    bookButtonText: "Consulta",
+    link: "https://wa.me/56957138795?text=Consulto%20por%20disponibilidad%20del%20taller"
   }
 ];
 
