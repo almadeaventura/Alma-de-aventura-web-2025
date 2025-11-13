@@ -70,20 +70,20 @@ export function BookingSheet() {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="p-0 border-0 w-[95vw] h-[90vh] max-w-4xl bg-card shadow-2xl flex flex-col">
-        <DialogHeader className="p-4 text-center relative flex-shrink-0">
+      <DialogContent className="p-0 border-0 w-[95vw] h-[90vh] max-w-4xl bg-transparent shadow-none flex flex-col focus-visible:ring-0 focus-visible:ring-offset-0">
+        <DialogHeader className="p-0 text-center relative flex-shrink-0 h-0">
           <DialogTitle className="sr-only">Formulario de Reserva</DialogTitle>
           <DialogClose asChild>
-            <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-8 w-8 rounded-full">
+            <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-8 w-8 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
               <X className="h-5 w-5" />
               <span className="sr-only">Cerrar</span>
             </Button>
           </DialogClose>
         </DialogHeader>
-        <div className="flex-grow h-0 p-2 pt-0">
+        <div className="flex-grow h-full p-2 pt-0">
           <iframe
             src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-            className="h-full w-full border-0 rounded-b-lg"
+            className="h-full w-full border-0 rounded-lg"
             title="Formulario de Reserva"
           ></iframe>
         </div>
