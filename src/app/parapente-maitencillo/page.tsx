@@ -37,8 +37,7 @@ export default function MaitencilloPage() {
           <Breadcrumb
             items={[
               { label: "Inicio", href: "/" },
-              { label: "Vuelos", href: "#" },
-              { label: "Maitencillo" },
+              { label: "Parapente Maitencillo" },
             ]}
           />
         </div>

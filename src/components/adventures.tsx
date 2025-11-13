@@ -7,7 +7,7 @@ const adventuresData = [
     title: "Parapente en Maitencillo",
     description: "Volamos todos los días desde el mediodía. Disfruta de vistas increíbles del mar y montañas, respaldado por más de 15 años y miles de horas de vuelo de experiencia profesional.",
     imageId: "vuelo-biplaza-card",
-    link: "/vuelos/maitencillo",
+    link: "/parapente-maitencillo",
     chips: ["Siente", "Relájate", "Desde 60mil"],
   },
   {
@@ -39,7 +39,7 @@ const adventuresData = [
     imageId: "tours-de-vuelo",
     chips: ["Chile", "Argentina", "Europa"],
     showPlayButton: false,
-    singleButtonText: "Ver tours 2026 (Pronto)",
+    singleButtonText: "Ver tours 2026",
   },
   {
     id: 5,
@@ -50,6 +50,15 @@ const adventuresData = [
     link: "https://wa.me/56957138795?text=Consulto%20por%20disponibilidad%20del%20taller",
     bookButtonText: "Consulta",
     showPlayButton: false
+  },
+  {
+    id: 6,
+    title: "Hike and Fly",
+    description: "Combina trekking y parapente en una experiencia única. Asciende a pie y desciende volando con vistas espectaculares.",
+    imageId: "adventure-patagonia",
+    chips: ["2 horas", "$150.000"],
+    link: "#book",
+    bookButtonText: "Reservar"
   }
 ];
 
