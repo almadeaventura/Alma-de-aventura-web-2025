@@ -1,3 +1,4 @@
+
 import { AdventureCard } from "@/components/adventure-card";
 
 const adventuresData = [
@@ -49,7 +50,7 @@ export function Adventures() {
   return (
     <section id="adventures" className="px-4 pb-12 md:pb-20">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           {adventuresData.map((adventure) => (
             <AdventureCard key={adventure.id} {...adventure} />
           ))}

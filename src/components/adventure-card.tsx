@@ -75,7 +75,7 @@ export function AdventureCard({
   );
 
   return (
-    <Card className="flex flex-col overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-shadow hover:shadow-lg bg-card/90 dark:bg-card/80">
+    <Card className="flex flex-col overflow-hidden rounded-xl border-black/5 dark:border-white/10 shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-shadow hover:shadow-lg bg-card/90 dark:bg-card/80 max-w-sm">
       <div className="w-full aspect-video relative">
         {image && (
           <Image
@@ -100,7 +100,7 @@ export function AdventureCard({
           </div>
         )}
       </div>
-      <div className="p-4 pt-3 flex flex-col flex-grow">
+      <CardContent className="p-4 flex flex-col flex-grow">
         <CardHeader className="p-0 flex-grow">
           <CardTitle className="text-base font-medium leading-normal">
             {title}
@@ -109,7 +109,7 @@ export function AdventureCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="mt-auto pt-4 flex items-center justify-start gap-2 p-0">
+        <CardFooter className="mt-auto pt-4 flex items-center justify-between p-0">
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
@@ -155,7 +155,7 @@ export function AdventureCard({
             </Button>
           </div>
         </CardFooter>
-      </div>
+      </CardContent>
     </Card>
   );
 }
