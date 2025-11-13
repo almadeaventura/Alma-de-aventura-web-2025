@@ -25,8 +25,8 @@ export function BookingSheet() {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent side="right" className="p-0 w-full sm:max-w-md">
-        <SheetHeader className="p-4 border-b">
+      <SheetContent side="right" className="p-0 w-full sm:max-w-md bg-background/80 dark:bg-background/80 backdrop-blur-sm border-black/5 dark:border-white/5">
+        <SheetHeader className="p-4 border-b border-black/5 dark:border-white/5">
           <SheetTitle>Reserva tu Aventura</SheetTitle>
         </SheetHeader>
         <div className="h-[calc(100%-60px)]">
