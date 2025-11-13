@@ -5,6 +5,7 @@ import { useState, useEffect }from 'react';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Dialog, DialogContent } from './ui/dialog';
 
 const BOOKING_SHEET_EVENT = 'trigger-booking-sheet';
 
@@ -34,6 +35,7 @@ export function BookingSheet() {
 
   const handleClose = () => {
     setIsOpen(false);
+    document.body.style.overflow = '';
   };
 
   if (!isMounted || !isOpen) {
@@ -41,20 +43,20 @@ export function BookingSheet() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center">
-      <div className="relative w-[95vw] h-[90vh] max-w-4xl rounded-lg overflow-hidden">
+    <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex justify-center">
+      <div className="relative w-full h-full">
          <Button 
             variant="ghost" 
             size="icon" 
             onClick={handleClose}
-            className="absolute top-2 right-2 h-8 w-8 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="absolute top-4 right-4 h-8 w-8 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30 focus-visible:ring-0 focus-visible:ring-offset-0"
           >
             <X className="h-5 w-5" />
             <span className="sr-only">Cerrar</span>
           </Button>
         <iframe
           src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-          className="h-full w-full border-0 rounded-lg"
+          className="h-full w-full border-0"
           title="Formulario de Reserva"
         ></iframe>
       </div>
