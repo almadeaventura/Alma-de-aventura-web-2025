@@ -28,7 +28,7 @@ const SantaHatIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="h-6 w-6 text-red-500 -mb-5 -ml-2 transform rotate-[15deg]"
+    className="h-8 w-8 text-red-500 -mb-6 -ml-3 transform rotate-[15deg]"
   >
     <path d="M12 2l7 4-7 8-7-8 7-4z" fill="red" stroke="red"></path>
     <path d="M5 6L12 14l7-8" stroke="red" strokeWidth="1"></path>
