@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { Gift } from "lucide-react";
 
 import {
   Sheet,
@@ -45,7 +45,7 @@ export function Header() {
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
-            <Menu className="h-8 w-8" />
+            <Gift className="h-8 w-8 text-red-500" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
