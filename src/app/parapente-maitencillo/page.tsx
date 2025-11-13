@@ -1,4 +1,5 @@
 
+'use client';
 
 import Image from 'next/image';
 import type { Metadata } from 'next';
@@ -18,25 +19,25 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Testimonials } from '@/components/testimonials';
 import { triggerBookingSheet } from '@/components/booking-sheet';
 
-export const metadata: Metadata = {
-  title: 'Vuelo en Parapente en Maitencillo | AlmAventura',
-  description: 'Reserva tu vuelo tándem en parapente en Maitencillo. Disfruta de vistas espectaculares del Océano Pacífico junto a instructores certificados. ¡Una experiencia inolvidable!',
-  keywords: ['parapente maitencillo', 'vuelo tándem maitencillo', 'volar en maitencillo', 'qué hacer en maitencillo', 'vuelo biplaza parapente', 'almadeaventura'],
-  openGraph: {
-    title: 'Vuela en Parapente en Maitencillo | AlmAventura',
-    description: 'Siente la libertad de volar sobre el Océano Pacífico con instructores certificados y más de 15 años de experiencia.',
-    type: 'website',
-    url: 'https://almadeaventura.cl/parapente-maitencillo',
-    images: [
-      {
-        url: 'https://almadeaventura.cl/images/og-maitencillo.jpg', // You should create this image
-        width: 1200,
-        height: 630,
-        alt: 'Persona volando en parapente sobre la playa de Maitencillo.',
-      },
-    ],
-  },
-};
+// export const metadata: Metadata = {
+//   title: 'Vuelo en Parapente en Maitencillo | AlmAventura',
+//   description: 'Reserva tu vuelo tándem en parapente en Maitencillo. Disfruta de vistas espectaculares del Océano Pacífico junto a instructores certificados. ¡Una experiencia inolvidable!',
+//   keywords: ['parapente maitencillo', 'vuelo tándem maitencillo', 'volar en maitencillo', 'qué hacer en maitencillo', 'vuelo biplaza parapente', 'almadeaventura'],
+//   openGraph: {
+//     title: 'Vuela en Parapente en Maitencillo | AlmAventura',
+//     description: 'Siente la libertad de volar sobre el Océano Pacífico con instructores certificados y más de 15 años de experiencia.',
+//     type: 'website',
+//     url: 'https://almadeaventura.cl/parapente-maitencillo',
+//     images: [
+//       {
+//         url: 'https://almadeaventura.cl/images/og-maitencillo.jpg', // You should create this image
+//         width: 1200,
+//         height: 630,
+//         alt: 'Persona volando en parapente sobre la playa de Maitencillo.',
+//       },
+//     ],
+//   },
+// };
 
 const services = [
   {
