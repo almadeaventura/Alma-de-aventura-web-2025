@@ -25,16 +25,18 @@ export function BookingSheet() {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetContent side="right" className="p-0 w-full sm:max-w-md bg-transparent border-none shadow-none">
-        <SheetHeader className="p-4 border-b border-white/10">
-          <SheetTitle className="text-white">Reserva tu Aventura</SheetTitle>
-        </SheetHeader>
-        <div className="h-[calc(100%-60px)]">
-          <iframe
-              src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-              className="w-full h-full border-0"
-              title="Formulario de Reserva"
-          ></iframe>
+      <SheetContent side="bottom" className="p-0 h-[80vh] w-full bg-transparent border-none shadow-none rounded-t-2xl">
+        <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
+            <SheetHeader className="p-4 pt-6 border-b border-white/10 flex-shrink-0">
+              <SheetTitle className="text-white text-center">Reserva tu Aventura</SheetTitle>
+            </SheetHeader>
+            <div className="flex-grow h-0">
+              <iframe
+                  src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
+                  className="w-full h-full border-0"
+                  title="Formulario de Reserva"
+              ></iframe>
+            </div>
         </div>
       </SheetContent>
     </Sheet>
