@@ -24,6 +24,15 @@ const adventuresData = [
     showPlayButton: false
   },
   {
+    id: 6,
+    title: "Hike and Fly",
+    description: "Combina senderismo y parapente en una aventura única. Asciende a pie y desciende volando por paisajes increíbles.",
+    imageId: "adventure-patagonia",
+    link: "#book",
+    chips: ["150mil", "2 horas", "Trekking"],
+    showPlayButton: false,
+  },
+  {
     id: 3,
     title: "Venta de Equipamiento",
     description:
@@ -49,9 +58,9 @@ const adventuresData = [
     description: "Servicio de reparación para parapentes, kites y arneses. Tu equipo en manos de riggers certificados para garantizar tu seguridad.",
     imageId: "taller-reparacion",
     chips: ["Parapente", "Kites", "Paracaidas"],
-    showPlayButton: false,
+    link: "https://wa.me/56957138795?text=Consulto%20por%20disponibilidad%20del%20taller",
     bookButtonText: "Consulta",
-    link: "https://wa.me/56957138795?text=Consulto%20por%20disponibilidad%20del%20taller"
+    showPlayButton: false
   }
 ];
 
@@ -59,7 +68,7 @@ export function Adventures() {
   return (
     <section id="adventures" className="px-4 pb-12 md:pb-20">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {adventuresData.map((adventure) => (
             <AdventureCard key={adventure.id} {...adventure} />
           ))}
