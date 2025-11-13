@@ -100,7 +100,7 @@ export default function MaitencilloPage() {
           </div>
         </section>
 
-        <section id="flight-options" className="bg-card/80 dark:bg-card/70 backdrop-blur-sm py-12 md:py-20">
+        <section id="flight-options" className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter">Elige tu Aventura en Maitencillo</h2>
