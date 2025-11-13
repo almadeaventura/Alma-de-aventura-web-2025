@@ -47,8 +47,6 @@ export function BookingSheet() {
   }, []);
 
   useEffect(() => {
-    // This effect ensures the Chatwoot widget is toggled correctly
-    // when the booking dialog opens or closes.
     if (!isMounted) return;
 
     if (window.chatwoot) {
@@ -68,6 +66,10 @@ export function BookingSheet() {
     setIsOpen(open);
   };
 
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="p-0 border-0 w-[95vw] h-[90vh] max-w-4xl bg-transparent shadow-none flex flex-col focus-visible:ring-0 focus-visible:ring-offset-0">
@@ -80,11 +82,13 @@ export function BookingSheet() {
             </Button>
           </DialogClose>
         </DialogHeader>
-        <iframe
-          src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-          className="h-full w-full border-0"
-          title="Formulario de Reserva"
-        ></iframe>
+        <div className={cn('h-full w-full', !isOpen && 'hidden')}>
+          <iframe
+            src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
+            className="h-full w-full border-0"
+            title="Formulario de Reserva"
+          ></iframe>
+        </div>
       </DialogContent>
     </Dialog>
   );

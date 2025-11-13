@@ -41,7 +41,7 @@ export function AdventureCard({
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
 
-  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
     triggerBookingSheet();
   };
