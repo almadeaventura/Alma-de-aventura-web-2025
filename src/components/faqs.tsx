@@ -23,7 +23,7 @@ const faqData = [
   },
   {
     id: "faq-3",
-    question: "¿Necesito experiencia previa? ¿Puedo volar si tengo alguna discapacidad?",
+    question: "¿Necesito experiencia previa?",
     answer: "No necesitas ninguna experiencia para un vuelo biplaza (tándem), ¡solo las ganas de vivir la aventura! Nuestro instructor se encarga de todo. Además, el parapente es una actividad muy inclusiva. Hemos tenido el placer de volar con personas con diversas capacidades; solo se requiere poder dar unos pocos pasos durante el despegue y aterrizaje. Si tienes alguna duda, contáctanos y lo conversamos.",
   },
   {
