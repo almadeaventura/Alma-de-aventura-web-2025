@@ -10,12 +10,9 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { useToast } from "@/hooks/use-toast";
-import { CountrySelect, type Country } from "./country-select";
 import { FaWhatsapp } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +21,9 @@ const heroSlides = [
     type: "image",
     title: "Vuela parapente en Maitencillo y Santiago",
     imageId: "vuelo-biplaza-maitencillo",
-    action: "form",
+    action: "button",
+    buttonLink: "#book",
+    buttonText: "Reservar Ahora",
   },
   {
     type: "image",
@@ -39,7 +38,9 @@ const heroSlides = [
     type: "image",
     title: "Regala un vuelo en Parapente",
     imageId: "christmas-gift",
-    action: "form",
+    action: "button",
+    buttonLink: "#book",
+    buttonText: "Regalar Vuelo",
   },
 ];
 
@@ -47,8 +48,6 @@ export function Hero() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
-  const [selectedCountry, setSelectedCountry] = React.useState<Country | undefined>();
-  const { toast } = useToast();
 
   React.useEffect(() => {
     if (!api) {
@@ -63,22 +62,16 @@ export function Hero() {
     });
   }, [api]);
 
-  const handleContact = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const phoneInput = (e.currentTarget.elements.namedItem('whatsapp') as HTMLInputElement);
-    const phoneValue = phoneInput.value;
+    const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
+        if (href === '#book') {
+            e.preventDefault();
+            const mainContainer = document.getElementById('main-container');
+            if (mainContainer) {
+                mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
+            }
+        }
+    };
 
-    if (phoneValue && selectedCountry) {
-        const fullPhone = selectedCountry.dialCode + phoneValue.replace(/\D/g, '');
-        window.open(`https://wa.me/${fullPhone}`, '_blank');
-    } else {
-        toast({
-            title: "Información requerida",
-            description: "Por favor, selecciona un país e ingresa tu número para contactar.",
-            variant: "destructive",
-        });
-    }
-  };
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -111,32 +104,10 @@ export function Hero() {
                       {slide.title}
                     </h1>
                     
-                    {slide.action === 'form' ? (
-                      <form onSubmit={handleContact} className="flex flex-col items-center gap-3 mt-4 w-full max-w-sm">
-                        <div className="flex w-full items-center rounded-full bg-white/90 p-1.5 shadow-lg backdrop-blur-sm gap-1">
-                          <CountrySelect onCountryChange={setSelectedCountry} variant="hero" />
-                          <Input
-                            name="whatsapp"
-                            className="flex-1 bg-transparent text-sm text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-0 border-0 p-0"
-                            placeholder="Tu WhatsApp"
-                            type="tel"
-                          />
-                          <Button
-                            type="submit"
-                            className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white transition-transform hover:scale-105"
-                          >
-                            <FaWhatsapp className="h-5 w-5" />
-                            <span className="truncate">Chatear</span>
-                            <ArrowRight className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </form>
-                    ) : (
-                      slide.action === 'button' && (
-                        <Button asChild size="lg" className="mt-4 rounded-full px-8 font-bold transition-transform hover:scale-105">
-                          <Link href={slide.buttonLink || '#'}>{slide.buttonText || 'Saber Más'}</Link>
-                        </Button>
-                      )
+                    {slide.action === 'button' && (
+                      <Button asChild size="lg" className="mt-4 rounded-full px-8 font-bold transition-transform hover:scale-105">
+                        <Link href={slide.buttonLink || '#'} onClick={(e) => handleBookingClick(e, slide.buttonLink)}>{slide.buttonText || 'Saber Más'}</Link>
+                      </Button>
                     )}
                   </div>
                 </div>

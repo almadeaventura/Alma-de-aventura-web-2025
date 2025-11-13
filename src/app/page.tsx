@@ -1,9 +1,10 @@
+
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Adventures } from "@/components/adventures";
 import { Testimonials } from "@/components/testimonials";
-import { BookingForm } from "@/components/booking-form";
 import { SiteFooter } from "@/components/footer";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -20,13 +21,18 @@ export default function Home() {
           <Adventures />
           <Testimonials />
         </div>
-        <div className="pb-10">
-          <h2 className="text-3xl font-bold leading-tight tracking-tighter text-center">
+        <div id="book" className="pb-10 text-center container mx-auto px-4">
+          <h2 className="text-3xl font-bold leading-tight tracking-tighter">
             <span className="block">Reserva tu Aventura</span>
             <span className="block">que nunca olvidaras</span>
           </h2>
+          <div className="mt-8">
+             {/* Este botón abrirá el panel de reservas a través del ID en el header */}
+            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
+                <a href="#book">Reservar Ahora</a>
+            </Button>
+          </div>
         </div>
-        <BookingForm />
       </main>
       <SiteFooter />
     </div>

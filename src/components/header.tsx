@@ -19,11 +19,26 @@ const navLinks = [
   { href: "/parapente-maitencillo", label: "Parapente Maitencillo" },
   { href: "/#adventures", label: "Otros Servicios" },
   { href: "/#testimonials", label: "Testimonios" },
-  { href: "/#book", label: "Reservar" },
+  { href: "#book", label: "Reservar" },
   { href: "/#about", label: "Contacto" },
 ];
 
+declare global {
+    interface Window {
+        openBookingSheet?: () => void;
+    }
+}
+
 export function Header() {
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href === "#book") {
+            e.preventDefault();
+            const mainContainer = document.getElementById('main-container');
+            if (mainContainer) {
+                mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
+            }
+        }
+    };
   return (
     <header className="flex items-center justify-between bg-background/80 dark:bg-background/80 backdrop-blur-sm p-4 border-b border-black/5 dark:border-white/5">
       <Link href="/" className="flex items-center">
@@ -41,6 +56,7 @@ export function Header() {
           <Link
             key={link.href}
             href={link.href}
+            onClick={(e) => handleNavClick(e, link.href)}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
             {link.label}
@@ -76,6 +92,7 @@ export function Header() {
               <SheetClose asChild key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   {link.label}

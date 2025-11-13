@@ -27,7 +27,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isRightSheetOpen, setIsRightSheetOpen] = useState(false);
+  const [isBookingSheetOpen, setIsBookingSheetOpen] = useState(false);
 
   return (
     <html lang="es" className={`${plusJakartaSans.variable}`}>
@@ -41,17 +41,23 @@ export default function RootLayout({
             className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/images/FondoParapentes.webp')" }}
           />
-          <div className="relative z-0 h-screen overflow-y-auto overflow-x-hidden">
+          <div className="relative z-0 h-screen overflow-y-auto overflow-x-hidden" id="main-container">
             {children}
           </div>
           <Toaster />
-          <WhatsappFab onFabClick={() => setIsRightSheetOpen(true)} />
-          <Sheet open={isRightSheetOpen} onOpenChange={setIsRightSheetOpen}>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle className="sr-only">Panel de contacto</SheetTitle>
+          <WhatsappFab onFabClick={() => setIsBookingSheetOpen(true)} />
+          <Sheet open={isBookingSheetOpen} onOpenChange={setIsBookingSheetOpen}>
+            <SheetContent side="right" className="p-0 w-full sm:max-w-md">
+              <SheetHeader className="p-4 border-b">
+                <SheetTitle>Reserva tu Aventura</SheetTitle>
               </SheetHeader>
-              {/* Contenido del panel derecho, actualmente vacío */}
+              <div className="h-[calc(100%-60px)]">
+                <iframe
+                    src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
+                    className="w-full h-full border-0"
+                    title="Formulario de Reserva"
+                ></iframe>
+              </div>
             </SheetContent>
           </Sheet>
         </AppLoader>

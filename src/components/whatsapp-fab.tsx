@@ -1,7 +1,7 @@
 
 "use client";
 
-import { FaWhatsapp } from "react-icons/fa";
+import { FaCommentDots } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
@@ -52,7 +52,7 @@ export function WhatsappFab({ onFabClick }: WhatsappFabProps) {
       >
         <p className="font-bold">Hola, soy Lucía 👋</p>
         <p className="text-sm text-muted-foreground">
-          ¿En qué te puedo ayudar?
+          ¿Necesitas ayuda para reservar?
         </p>
       </div>
 
@@ -60,10 +60,10 @@ export function WhatsappFab({ onFabClick }: WhatsappFabProps) {
       <div className="relative">
         <Button
           onClick={handleFabClick}
-          className="p-0 rounded-full h-16 w-16 transition-transform hover:scale-110 shadow-lg"
-          aria-label="Contact on WhatsApp"
+          className="p-0 rounded-full h-16 w-16 transition-transform hover:scale-110 shadow-lg bg-primary"
+          aria-label="Abrir panel de reservas"
         >
-          <FaWhatsapp className="h-16 w-16 text-[#25D366]" />
+          <FaCommentDots className="h-8 w-8 text-primary-foreground" />
         </Button>
 
         {/* Punto de Notificación */}

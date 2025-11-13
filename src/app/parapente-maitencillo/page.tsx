@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { CheckCircle, Award, Shield, Wind, Users } from 'lucide-react';
 
@@ -12,7 +13,6 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { BookingForm } from '@/components/booking-form';
 import { WhatsappFab } from '@/components/whatsapp-fab';
 import { Testimonials } from '@/components/testimonials';
 
@@ -189,7 +189,18 @@ export default function ParapenteMaitencilloPage() {
         </section>
 
         {/* Booking Form Section */}
-        <BookingForm />
+        <div id="book" className="pb-10 text-center container mx-auto px-4">
+          <h2 className="text-3xl font-bold leading-tight tracking-tighter">
+            <span className="block">Reserva tu Aventura</span>
+            <span className="block">que nunca olvidaras</span>
+          </h2>
+          <div className="mt-8">
+             {/* Este botón abrirá el panel de reservas a través del ID en el header */}
+            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
+                <a href="#book">Reservar Ahora</a>
+            </Button>
+          </div>
+        </div>
 
       </main>
       <SiteFooter />
