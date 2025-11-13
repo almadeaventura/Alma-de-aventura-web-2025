@@ -15,16 +15,6 @@ import { cn } from '@/lib/utils';
 
 const BOOKING_SHEET_EVENT = 'trigger-booking-sheet';
 
-// Extend the global Window interface to include chatwoot
-declare global {
-  interface Window {
-    chatwoot?: {
-      toggle: (state: 'open' | 'close') => void;
-      toggleBubble: (visible: boolean) => void;
-    };
-  }
-}
-
 export function triggerBookingSheet() {
   document.dispatchEvent(new CustomEvent(BOOKING_SHEET_EVENT, { detail: { open: true } }));
 }
@@ -46,18 +36,6 @@ export function BookingSheet() {
       document.removeEventListener(BOOKING_SHEET_EVENT, handleTrigger);
     };
   }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    if (window.chatwoot) {
-      if (isOpen) {
-        window.chatwoot.toggleBubble(false);
-      } else {
-        window.chatwoot.toggleBubble(true);
-      }
-    }
-  }, [isOpen, isMounted]);
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
