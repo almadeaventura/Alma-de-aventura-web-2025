@@ -28,7 +28,7 @@ export function BookingSheet() {
       <SheetContent side="bottom" className="p-0 h-[80vh] w-full bg-transparent border-none shadow-none rounded-t-2xl">
         <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
             <SheetHeader className="p-4 pt-6 border-b border-white/10 flex-shrink-0">
-              <SheetTitle className="text-white text-center">Reserva tu Aventura</SheetTitle>
+              <SheetTitle className="text-white text-center sr-only">Reserva tu Aventura</SheetTitle>
             </SheetHeader>
             <div className="flex-grow h-0">
               <iframe
