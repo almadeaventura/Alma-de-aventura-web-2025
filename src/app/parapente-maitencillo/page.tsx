@@ -16,6 +16,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Testimonials } from '@/components/testimonials';
+import { triggerBookingSheet } from '@/components/booking-sheet';
 
 const services = [
   {
@@ -62,12 +63,9 @@ const faqs = [
 export default function ParapenteMaitencilloPage() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-video-poster');
 
-  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const mainContainer = document.getElementById('main-container');
-    if (mainContainer) {
-        mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
-    }
+    triggerBookingSheet();
   };
 
 
@@ -95,8 +93,8 @@ export default function ParapenteMaitencilloPage() {
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl font-light">
               Siente la libertad de volar sobre el Océano Pacífico con instructores certificados. Una experiencia inolvidable te espera.
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-              <a href="#book" onClick={handleBookingClick}>Reservar Mi Vuelo Ahora</a>
+            <Button size="lg" className="mt-8 rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
+              Reservar Mi Vuelo Ahora
             </Button>
           </div>
         </section>
@@ -136,8 +134,8 @@ export default function ParapenteMaitencilloPage() {
                           </li>
                         ))}
                       </ul>
-                      <Button asChild className="w-full mt-auto rounded-full font-bold transition-transform hover:scale-105">
-                        <a href="#book" onClick={handleBookingClick}>Quiero Este Vuelo</a>
+                      <Button className="w-full mt-auto rounded-full font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
+                        Quiero Este Vuelo
                       </Button>
                     </CardContent>
                   </Card>
@@ -205,8 +203,8 @@ export default function ParapenteMaitencilloPage() {
             <span className="block">que nunca olvidaras</span>
           </h2>
           <div className="mt-8">
-            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-                <a href="#book" onClick={handleBookingClick}>Reservar Ahora</a>
+            <Button size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
+                Reservar Ahora
             </Button>
           </div>
         </div>

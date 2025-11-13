@@ -6,9 +6,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import { AppLoader } from '@/components/app-loader';
-import { useState, useEffect } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Script from 'next/script';
+import { BookingSheet } from '@/components/booking-sheet';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -27,23 +26,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isBookingSheetOpen, setIsBookingSheetOpen] = useState(false);
-
-  useEffect(() => {
-    const handleOpenBooking = () => setIsBookingSheetOpen(true);
-    const mainContainer = document.getElementById('main-container');
-
-    if (mainContainer) {
-        mainContainer.addEventListener('open-booking-sheet', handleOpenBooking);
-    }
-    
-    // Cleanup
-    return () => {
-        if (mainContainer) {
-            mainContainer.removeEventListener('open-booking-sheet', handleOpenBooking);
-        }
-    };
-  }, []);
 
   return (
     <html lang="es" className={`${plusJakartaSans.variable}`}>
@@ -61,20 +43,7 @@ export default function RootLayout({
             {children}
           </div>
           <Toaster />
-          <Sheet open={isBookingSheetOpen} onOpenChange={setIsBookingSheetOpen}>
-            <SheetContent side="right" className="p-0 w-full sm:max-w-md">
-              <SheetHeader className="p-4 border-b">
-                <SheetTitle>Reserva tu Aventura</SheetTitle>
-              </SheetHeader>
-              <div className="h-[calc(100%-60px)]">
-                <iframe
-                    src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-                    className="w-full h-full border-0"
-                    title="Formulario de Reserva"
-                ></iframe>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <BookingSheet />
         </AppLoader>
         <Script id="chatwoot-sdk" strategy="afterInteractive">
           {`
@@ -89,8 +58,7 @@ export default function RootLayout({
                 window.chatwootSDK.run({
                   websiteToken: 'L9TqEY3C3ZQUasNXuYTQULMC',
                   baseUrl: BASE_URL,
-                  type: 'standard',
-                  hideMessageBubble: false
+                  type: 'standard'
                 })
               }
             })(document,"script");

@@ -14,6 +14,7 @@ import {
   SheetHeader,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { triggerBookingSheet } from "./booking-sheet";
 
 const navLinks = [
   { href: "/parapente-maitencillo", label: "Parapente Maitencillo" },
@@ -27,10 +28,7 @@ export function Header() {
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         if (href === "#book") {
             e.preventDefault();
-            const mainContainer = document.getElementById('main-container');
-            if (mainContainer) {
-                mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
-            }
+            triggerBookingSheet();
         }
     };
   return (

@@ -15,6 +15,7 @@ import { ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { FaWhatsapp } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import { triggerBookingSheet } from "./booking-sheet";
 
 const heroSlides = [
   {
@@ -65,10 +66,7 @@ export function Hero() {
     const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
         if (href === '#book') {
             e.preventDefault();
-            const mainContainer = document.getElementById('main-container');
-            if (mainContainer) {
-                mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
-            }
+            triggerBookingSheet();
         }
     };
 

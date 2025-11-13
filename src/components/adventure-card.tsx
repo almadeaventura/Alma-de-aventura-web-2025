@@ -17,6 +17,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { VideoDialog } from "./video-dialog";
+import { triggerBookingSheet } from "./booking-sheet";
 
 type AdventureCardProps = {
   title: string;
@@ -40,12 +41,9 @@ export function AdventureCard({
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
 
-  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const mainContainer = document.getElementById('main-container');
-    if (mainContainer) {
-        mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
-    }
+    triggerBookingSheet();
   };
 
   const handleComingSoon = () => {
@@ -141,10 +139,10 @@ export function AdventureCard({
               <Link href={link}>Ver Más</Link>
             </Button>
             <Button
-              asChild
+              onClick={handleBookingClick}
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
-              <a href="#book" onClick={handleBookingClick}>Reservar</a>
+              Reservar
             </Button>
           </div>
         </CardFooter>

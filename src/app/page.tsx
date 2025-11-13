@@ -7,14 +7,12 @@ import { Adventures } from "@/components/adventures";
 import { Testimonials } from "@/components/testimonials";
 import { SiteFooter } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { triggerBookingSheet } from "@/components/booking-sheet";
 
 export default function Home() {
-  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleBookingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const mainContainer = document.getElementById('main-container');
-    if (mainContainer) {
-      mainContainer.dispatchEvent(new CustomEvent('open-booking-sheet'));
-    }
+    triggerBookingSheet();
   };
 
   return (
@@ -37,8 +35,8 @@ export default function Home() {
             <span className="block">que nunca olvidaras</span>
           </h2>
           <div className="mt-8">
-            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105">
-                <a href="#book" onClick={handleBookingClick}>Reservar Ahora</a>
+            <Button size="lg" className="rounded-full h-14 px-8 text-lg font-bold transition-transform hover:scale-105" onClick={handleBookingClick}>
+                Reservar Ahora
             </Button>
           </div>
         </div>
