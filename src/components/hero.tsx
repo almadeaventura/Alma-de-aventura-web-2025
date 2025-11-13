@@ -91,7 +91,7 @@ export function Hero() {
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 group">
                 <Card className="overflow-hidden rounded-xl shadow-lg transition-transform group-hover:scale-[1.02] bg-card/90 dark:bg-card/80">
                   <CardContent className="p-0">
-                    <div className="relative w-full aspect-square">
+                    <div className="relative w-full aspect-video">
                         {image && (
                           <Image
                             src={image.imageUrl}
