@@ -1,4 +1,5 @@
 
+'use client';
 
 import type { Metadata } from 'next';
 import { Header } from "@/components/header";
@@ -9,25 +10,25 @@ import { SiteFooter } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { triggerBookingSheet } from "@/components/booking-sheet";
 
-export const metadata: Metadata = {
-  title: 'AlmAventura | Escuela de Parapente y Vuelos Tándem en Chile',
-  description: 'Vive la aventura de volar. Ofrecemos vuelos biplaza en parapente, cursos de todos los niveles y tours de vuelo en Maitencillo, Santiago y Europa. ¡Reserva hoy!',
-  keywords: ['parapente', 'vuelo tándem', 'escuela de parapente', 'parapente chile', 'parapente maitencillo', 'parapente santiago', 'almadeaventura', 'volar en parapente'],
-  openGraph: {
-    title: 'AlmAventura | Escuela de Parapente y Vuelos Tándem en Chile',
-    description: 'Siente la libertad de volar. Vuelos biplaza, cursos y tours de parapente con instructores certificados.',
-    type: 'website',
-    url: 'https://almadeaventura.cl',
-    images: [
-      {
-        url: 'https://almadeaventura.cl/images/og-image.jpg', // You should create this image
-        width: 1200,
-        height: 630,
-        alt: 'Persona volando en parapente sobre un paisaje montañoso al atardecer.',
-      },
-    ],
-  },
-};
+// export const metadata: Metadata = {
+//   title: 'AlmAventura | Escuela de Parapente y Vuelos Tándem en Chile',
+//   description: 'Vive la aventura de volar. Ofrecemos vuelos biplaza en parapente, cursos de todos los niveles y tours de vuelo en Maitencillo, Santiago y Europa. ¡Reserva hoy!',
+//   keywords: ['parapente', 'vuelo tándem', 'escuela de parapente', 'parapente chile', 'parapente maitencillo', 'parapente santiago', 'almadeaventura', 'volar en parapente'],
+//   openGraph: {
+//     title: 'AlmAventura | Escuela de Parapente y Vuelos Tándem en Chile',
+//     description: 'Siente la libertad de volar. Vuelos biplaza, cursos y tours de parapente con instructores certificados.',
+//     type: 'website',
+//     url: 'https://almadeaventura.cl',
+//     images: [
+//       {
+//         url: 'https://almadeaventura.cl/images/og-image.jpg', // You should create this image
+//         width: 1200,
+//         height: 630,
+//         alt: 'Persona volando en parapente sobre un paisaje montañoso al atardecer.',
+//       },
+//     ],
+//   },
+// };
 
 
 export default function Home() {
