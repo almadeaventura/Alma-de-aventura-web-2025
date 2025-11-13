@@ -10,7 +10,7 @@ const adventuresData = [
     link: "#book",
     chips: ["Siente", "Relájate", "Desde 60mil"],
     videoUrl: "/videos/relax-estas-volando.mov",
-    showPlayButton: true,
+    showPlayButton: false,
   },
   {
     id: 2,
@@ -30,7 +30,8 @@ const adventuresData = [
       "Encuentra todo lo que necesitas para tu próxima aventura. Equipos nuevos y usados de las mejores marcas del mercado.",
     imageId: "tienda-web",
     chips: ["Nuevos", "Usados"],
-    showPlayButton: false
+    showPlayButton: false,
+    singleButtonText: "Ver tienda online (Pronto)",
   },
   {
     id: 4,

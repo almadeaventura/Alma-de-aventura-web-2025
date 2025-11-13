@@ -29,6 +29,7 @@ type AdventureCardProps = {
   videoUrl?: string;
   bookButtonText?: string;
   showPlayButton?: boolean;
+  singleButtonText?: string;
 };
 
 export function AdventureCard({
@@ -41,6 +42,7 @@ export function AdventureCard({
   videoUrl,
   bookButtonText = "Reservar",
   showPlayButton = true,
+  singleButtonText,
 }: AdventureCardProps) {
   const image = PlaceHolderImages.find((img) => img.id === imageId);
   const { toast } = useToast();
@@ -113,53 +115,63 @@ export function AdventureCard({
             {description}
           </CardDescription>
         </CardHeader>
-        <CardFooter className="mt-auto pt-4 flex items-center justify-between p-0">
-          <div className="flex items-center gap-2">
+        <CardFooter className={cn("mt-auto pt-4 flex items-center p-0", singleButtonText ? "justify-center" : "justify-between")}>
+          {singleButtonText ? (
             <Button
-              variant="ghost"
-              size="icon"
-              className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
               onClick={handleComingSoon}
-            >
-              <Share2 className="h-5 w-5" />
-              <span className="sr-only">Share</span>
-            </Button>
-            {showPlayButton && (
-              videoUrl ? (
-                <VideoDialog
-                  videoUrl={videoUrl}
-                  videoTitle={title}
-                  trigger={
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
-                    >
-                      <Play className="h-5 w-5" />
-                      <span className="sr-only">Play Video</span>
-                    </Button>
-                  }
-                />
-              ) : (
-                <PlayButton />
-              )
-            )}
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              asChild
-              variant="secondary"
-              className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50"
-            >
-              <Link href={link} onClick={handleLinkClick}>Ver Más</Link>
-            </Button>
-            <Button
-              onClick={handleBookingClick}
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
-              {bookButtonText}
+              {singleButtonText}
             </Button>
-          </div>
+          ) : (
+            <>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
+                  onClick={handleComingSoon}
+                >
+                  <Share2 className="h-5 w-5" />
+                  <span className="sr-only">Share</span>
+                </Button>
+                {showPlayButton &&
+                  (videoUrl ? (
+                    <VideoDialog
+                      videoUrl={videoUrl}
+                      videoTitle={title}
+                      trigger={
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
+                        >
+                          <Play className="h-5 w-5" />
+                          <span className="sr-only">Play Video</span>
+                        </Button>
+                      }
+                    />
+                  ) : (
+                    <PlayButton />
+                  ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  asChild
+                  variant="secondary"
+                  className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50"
+                >
+                  <Link href={link} onClick={handleLinkClick}>Ver Más</Link>
+                </Button>
+                <Button
+                  onClick={handleBookingClick}
+                  className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
+                >
+                  {bookButtonText}
+                </Button>
+              </div>
+            </>
+          )}
         </CardFooter>
       </CardContent>
     </Card>
