@@ -79,7 +79,7 @@ export function AdventureCard({
           />
         )}
         {chips && chips.length > 0 && (
-          <div className="absolute bottom-2 right-2 z-20 flex flex-wrap gap-2 justify-end">
+          <div className="absolute top-2 left-2 z-20 flex flex-wrap gap-2 justify-start">
             {chips.map((chip) => (
               <div
                 key={chip}
