@@ -105,8 +105,8 @@ export function Hero() {
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                       
-                      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                        <h2 className={cn("text-2xl font-bold text-white drop-shadow-md", slide.titleClassName)}>
+                      <div className="absolute inset-0 flex flex-col items-start justify-end text-left p-4">
+                        <h2 className={cn("text-3xl font-bold text-white drop-shadow-md", slide.titleClassName)}>
                           {Array.isArray(slide.title) ? (
                             slide.title.map((line, i) => <span key={i} className="block">{line}</span>)
                           ) : (
