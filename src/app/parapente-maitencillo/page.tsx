@@ -29,7 +29,7 @@ export default function MaitencilloPage() {
       price: "$60.000",
       description: "Disfruta de un paseo tranquilo con vistas espectaculares del mar y el campo. Ideal para tu primera experiencia.",
       features: [
-        "La versión tranquila y relajada para disfrutar del paisaje.",
+        "Briefing e introducción inicial.",
         "Ideal para pasajeros que buscan una experiencia tranquila y segura con instructores certificados.",
         "Equipamiento de última generación.",
       ],
