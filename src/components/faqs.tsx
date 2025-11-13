@@ -7,7 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 
 const faqData = [
@@ -62,6 +63,11 @@ export function Faqs() {
             </Accordion>
           </div>
         </CardContent>
+        <CardFooter className="justify-center p-6 pt-0">
+            <Button asChild variant="secondary" className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50">
+                <a href="#">Ver más preguntas frecuentes</a>
+            </Button>
+        </CardFooter>
       </Card>
     </section>
   );
