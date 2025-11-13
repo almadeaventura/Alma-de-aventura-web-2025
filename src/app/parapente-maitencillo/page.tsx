@@ -30,7 +30,7 @@ export default function MaitencilloPage() {
       description: "Disfruta de un paseo tranquilo con vistas espectaculares del mar y el campo. Ideal para tu primera experiencia.",
       features: [
         "Briefing e introducción inicial.",
-        "Ideal para pasajeros que buscan una experiencia tranquila y segura con instructores certificados.",
+        "Vuelo recto y nivelado",
         "Equipamiento de última generación.",
       ],
       icon: <Wind className="h-8 w-8 text-primary" />,
