@@ -46,6 +46,13 @@ export function AdventureCard({
     triggerBookingSheet();
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (link === '#book') {
+      e.preventDefault();
+      triggerBookingSheet();
+    }
+  }
+
   const handleComingSoon = () => {
     toast({
       title: "¡No desesperes, ya falta menos!",
@@ -136,7 +143,7 @@ export function AdventureCard({
               variant="secondary"
               className="rounded-full h-9 px-4 text-xs font-bold transition-transform hover:scale-105 dark:bg-accent/30 dark:hover:bg-accent/50"
             >
-              <Link href={link}>Ver Más</Link>
+              <Link href={link} onClick={handleLinkClick}>Ver Más</Link>
             </Button>
             <Button
               onClick={handleBookingClick}

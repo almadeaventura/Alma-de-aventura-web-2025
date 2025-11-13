@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import { triggerBookingSheet } from "./booking-sheet";
 
 const navLinks = [
-  { href: "/parapente-maitencillo", label: "Parapente Maitencillo" },
   { href: "/#adventures", label: "Otros Servicios" },
   { href: "/#testimonials", label: "Testimonios" },
   { href: "#book", label: "Reservar" },

@@ -35,14 +35,6 @@ export function SiteFooter() {
               <li>
                 <Link
                   className="text-muted-foreground hover:text-primary"
-                  href="/parapente-maitencillo#faq"
-                >
-                  Preguntas Frecuentes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-muted-foreground hover:text-primary"
                   href="#contact"
                 >
                   Contacto
