@@ -119,6 +119,7 @@ export function AdventureCard({
           {singleButtonText ? (
             <Button
               onClick={handleComingSoon}
+              disabled
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
               {singleButtonText}

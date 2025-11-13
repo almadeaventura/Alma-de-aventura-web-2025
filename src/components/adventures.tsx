@@ -10,7 +10,7 @@ const adventuresData = [
     link: "#book",
     chips: ["Siente", "Relájate", "Desde 60mil"],
     videoUrl: "/videos/relax-estas-volando.mov",
-    showPlayButton: false,
+    showPlayButton: true,
   },
   {
     id: 2,
@@ -40,7 +40,8 @@ const adventuresData = [
       "Te llevamos a los mejores lugares para volar en Chile y Europa. Viajes organizados para pilotos de todos los niveles.",
     imageId: "tours-de-vuelo",
     chips: ["Chile", "Argentina", "Europa"],
-    showPlayButton: false
+    showPlayButton: false,
+    singleButtonText: "Ver tours 2026 (Pronto)",
   },
   {
     id: 5,
