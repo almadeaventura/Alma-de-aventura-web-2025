@@ -7,9 +7,8 @@ const adventuresData = [
     title: "Parapente en Maitencillo",
     description: "Volamos todos los días desde el mediodía. Disfruta de vistas increíbles del mar y montañas, respaldado por más de 15 años y miles de horas de vuelo de experiencia profesional.",
     imageId: "vuelo-biplaza-card",
-    link: "#book",
+    link: "/vuelos/maitencillo",
     chips: ["Siente", "Relájate", "Desde 60mil"],
-    showPlayButton: false,
   },
   {
     id: 2,

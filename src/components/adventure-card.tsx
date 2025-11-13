@@ -53,9 +53,11 @@ export function AdventureCard({
   };
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (link === '#book') {
+    if (link.startsWith("#")) {
       e.preventDefault();
-      triggerBookingSheet();
+      if (link === '#book') {
+        triggerBookingSheet();
+      }
     }
   }
 
@@ -121,7 +123,7 @@ export function AdventureCard({
           {singleButtonText ? (
             <Button
               onClick={handleComingSoon}
-              disabled={singleButtonText.includes('Pronto')}
+              disabled={singleButtonText.includes('(Pronto)') || singleButtonText.includes('2026')}
               className="rounded-full h-9 px-4 bg-primary text-primary-foreground text-xs font-bold transition-transform hover:scale-105"
             >
               {singleButtonText}
