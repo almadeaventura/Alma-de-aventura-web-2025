@@ -9,7 +9,8 @@ const adventuresData = [
     imageId: "vuelo-biplaza-card",
     link: "#book",
     chips: ["Siente", "Relájate", "Desde 60mil"],
-    videoUrl: "/videos/relax-estas-volando.mov"
+    videoUrl: "/videos/relax-estas-volando.mov",
+    showPlayButton: true,
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ const adventuresData = [
     description:
       "Encuentra todo lo que necesitas para tu próxima aventura. Equipos nuevos y usados de las mejores marcas del mercado.",
     imageId: "tienda-web",
-    chips: ["Nuevos", "Usados"]
+    chips: ["Nuevos", "Usados"],
+    showPlayButton: false
   },
   {
     id: 4,
@@ -36,14 +38,16 @@ const adventuresData = [
     description:
       "Te llevamos a los mejores lugares para volar en Chile y Europa. Viajes organizados para pilotos de todos los niveles.",
     imageId: "tours-de-vuelo",
-    chips: ["Chile", "Argentina", "Europa"]
+    chips: ["Chile", "Argentina", "Europa"],
+    showPlayButton: false
   },
   {
     id: 5,
     title: "Taller de Reparación",
     description: "Servicio de reparación para parapentes, kites y arneses. Tu equipo en manos de riggers certificados para garantizar tu seguridad.",
     imageId: "taller-reparacion",
-    chips: ["Parapente", "Kites", "Paracaidas"]
+    chips: ["Parapente", "Kites", "Paracaidas"],
+    showPlayButton: false
   }
 ];
 
