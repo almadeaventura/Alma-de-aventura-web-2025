@@ -23,8 +23,10 @@ export function triggerBookingSheet() {
 
 export function BookingSheet() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleTrigger = (event: Event) => {
       const customEvent = event as CustomEvent;
       setIsOpen(customEvent.detail.open);
@@ -38,18 +40,22 @@ export function BookingSheet() {
   }, []);
 
   useEffect(() => {
-    // Check if the Chatwoot SDK is available on the window object
+    // We don't want to run this on the very first render.
+    // Chatwoot script will handle the initial visibility.
+    if (!isMounted) return;
+
     if (window.chatwoot) {
       if (isOpen) {
         window.chatwoot.toggle('close');
       } else {
         // We add a small delay to show the bubble again to avoid visual glitches
+        // This should only run when the sheet is *closing*, not on initial load.
         setTimeout(() => {
           window.chatwoot?.toggle('open');
         }, 300); // 300ms matches the sheet's closing animation
       }
     }
-  }, [isOpen]);
+  }, [isOpen, isMounted]);
 
   const handleClose = () => {
     setIsOpen(false);
