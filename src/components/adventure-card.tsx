@@ -64,13 +64,15 @@ export function AdventureCard({
 
   const PlayButton = () => (
     <Button
+      asChild
       variant="ghost"
       size="icon"
       className="w-9 h-9 rounded-full bg-background dark:bg-background-dark/50 text-foreground transition-colors hover:bg-muted dark:hover:bg-gray-700"
-      onClick={handleComingSoon}
     >
-      <Play className="h-5 w-5" />
-      <span className="sr-only">Play Video</span>
+      <Link href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTY2OTk2MDU2NzYxODUy?story_media_id=2845986041932142047&igsh=OWlwcG51c2g5YjZw" target="_blank" rel="noopener noreferrer">
+        <Play className="h-5 w-5" />
+        <span className="sr-only">Play Video</span>
+      </Link>
     </Button>
   );
 
