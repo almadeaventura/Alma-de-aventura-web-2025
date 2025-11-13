@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Gift, Mails } from "lucide-react"; // Asumo un icono como Mails, lo reemplazaré con un SVG.
+import { Gift } from "lucide-react";
 
 import {
   Sheet,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { triggerBookingSheet } from "./booking-sheet";
+import { cn } from "@/lib/utils";
 
 // SVG para el gorro de Santa
 const SantaHatIcon = () => (
@@ -64,9 +65,24 @@ export function Header() {
         />
         <SantaHatIcon />
       </Link>
+      <nav className="hidden md:flex items-center gap-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className={cn(
+                "text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
+                link.href === "#book" && "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground rounded-full px-4 py-2"
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500">
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 md:hidden">
             <Gift className="h-8 w-8" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
