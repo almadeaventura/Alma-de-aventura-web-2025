@@ -48,19 +48,19 @@ export function BookingSheet() {
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="p-0 border-0 w-[95vw] h-[85vh] max-w-4xl bg-transparent shadow-none flex flex-col focus-visible:ring-0 focus-visible:ring-offset-0 rounded-lg">
-        <DialogHeader className="p-0 text-center relative flex-shrink-0 h-0">
+        <DialogHeader className="p-0 text-center relative flex-shrink-0">
           <DialogTitle className="sr-only">Formulario de Reserva</DialogTitle>
           <DialogClose asChild>
-            <Button variant="ghost" size="icon" className="absolute -top-10 -right-1 h-8 w-8 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30">
+            <Button variant="ghost" size="icon" className="absolute top-4 right-4 h-8 w-8 rounded-full bg-white/20 text-white z-50 backdrop-blur-sm transition-colors hover:bg-white/30 focus-visible:ring-0 focus-visible:ring-offset-0">
               <X className="h-5 w-5" />
               <span className="sr-only">Cerrar</span>
             </Button>
           </DialogClose>
         </DialogHeader>
-        <div className={cn('h-full w-full overflow-hidden rounded-lg', !isOpen && 'hidden')}>
+        <div className={cn('h-full w-full overflow-hidden rounded-lg pt-12', !isOpen && 'hidden')}>
           <iframe
             src="https://studio--studio-9830022122-8bbd1.us-central1.hosted.app/"
-            className="h-full w-full border-0"
+            className="h-full w-full border-0 rounded-lg"
             title="Formulario de Reserva"
           ></iframe>
         </div>
