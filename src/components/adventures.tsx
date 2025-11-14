@@ -50,15 +50,6 @@ const adventuresData = [
     link: "https://wa.me/56957138795?text=Consulto%20por%20disponibilidad%20del%20taller",
     bookButtonText: "Consulta",
     showPlayButton: false
-  },
-  {
-    id: 6,
-    title: "Hike and Fly",
-    description: "Combina trekking y parapente en una experiencia única. Asciende a pie y desciende volando con vistas espectaculares.",
-    imageId: "adventure-patagonia",
-    chips: ["2 horas", "$150.000"],
-    link: "#book",
-    bookButtonText: "Reservar"
   }
 ];
 
