@@ -45,7 +45,7 @@ export default function Home() {
         <Hero />
         <div className="py-10">
           <h2 className="text-3xl font-bold leading-tight tracking-tighter text-center">
-            Nuestros servicios de parapente
+            Nuestros servicios de parapente FINAL
           </h2>
         </div>
         <div className="space-y-6 md:space-y-10">
