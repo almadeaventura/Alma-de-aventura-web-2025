@@ -27,7 +27,7 @@ export default function MaitencilloPage() {
     {
       title: "Vuelo Panorámico (15-20 min)",
       price: "$60.000",
-      description: "Disfruta de un paseo tranquilo con vistas espectaculares del mar y el campo. Ideal para tu primera experiencia.",
+      description: "Disfruta de un paseo tranquilo con vistas espectaculares del mar y el campo. Vuelo recto y nivelado.",
       features: [
         "Briefing e introducción inicial.",
         "Vuelo recto y nivelado",
